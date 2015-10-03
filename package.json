@@ -2,7 +2,7 @@
   "name": "React_Imgur",
   "version": "1.0.0",
   "description": "Cloning IMGUR with React",
-  "main": "App.js",
+  "main": "App.jsx",
   "scripts": {
     "webpack-server": "webpack-dev-server --hot --progress --colors",
     "web-server": "http-server -p 3000 .",

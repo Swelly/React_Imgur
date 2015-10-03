@@ -2,7 +2,7 @@
 
 module.exports = {
     // Entry point + files to be loaded
-    entry: getEntrySources(['./src/js/App.js']),
+    entry: getEntrySources(['./src/js/App.jsx']),
     // What to build and where
     output: {
         publicPath: 'http://localhost:8080/',
