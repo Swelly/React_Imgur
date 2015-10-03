@@ -1,4 +1,5 @@
 'use strict';
+var webpack = require('webpack');
 
 module.exports = {
     // Entry point + files to be loaded
@@ -56,7 +57,13 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.ProvidePlugin({
+            'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+        })
+    ]
 };
 
 // ENV handler | Default = Development
