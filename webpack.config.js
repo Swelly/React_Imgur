@@ -9,6 +9,9 @@ module.exports = {
         publicPath: 'http://localhost:8080/',
         filename: 'build/bundle.js'
     },
+    node: {
+        fs: "empty"
+    },
     // http://webpack.github.io/docs/configuration.html#devtool
     devtool: 'eval-source-map',
     module: {

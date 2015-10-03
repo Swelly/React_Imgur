@@ -51,6 +51,7 @@
     "whatwg-fetch": "^0.9.0"
   },
   "dependencies": {
+    "dotenv": "^1.2.0",
     "react": "^0.13.3",
     "react-router": "^0.13.3"
   }
