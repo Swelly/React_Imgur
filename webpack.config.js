@@ -2,7 +2,7 @@
 
 module.exports = {
     // Entry point + files to be loaded
-    entry: getEntrySources(['./src/js/App.jsx']),
+    entry: getEntrySources(['./src/js/app.jsx']),
     // What to build and where
     output: {
         publicPath: 'http://localhost:8080/',
@@ -23,6 +23,10 @@ module.exports = {
         ],
         // Loaders http://webpack.github.io/docs/loaders.html
         loaders: [
+            {
+                text: /\.html$/,
+                loader: "html"
+            },
             {
                 // Find SCSS within src/
                 // Sass -> CSS
