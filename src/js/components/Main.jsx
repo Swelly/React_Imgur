@@ -1,12 +1,32 @@
+// Container for all Components
+
 import React from 'react';
+import Router, { RouteHandler, Link } from 'react-router';
+
+import Header from './Header.jsx';
+import TopicList from './TopicList.jsx';
+
 
 class Main extends React.Component {
-    render () {
-        return (
-            <h1>HEADER YO</h1>
-            {this.props.children}
-        )
+
+  renderContent() {
+    if(this.props.children) {
+      console.log("HEY")
+      return this.props.children
+    } else {
+      return <TopicList />
     }
+  }
+
+  render() {
+    return (
+      <div className="container">
+      <Header />
+        <RouteHandler />
+        <div>{this.renderContent()}</div>
+      </div>
+    );
+  }
 }
 
-module.exports = Main;
+export default Main;

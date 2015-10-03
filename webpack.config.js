@@ -1,12 +1,16 @@
 'use strict';
+var webpack = require('webpack');
 
 module.exports = {
     // Entry point + files to be loaded
-    entry: getEntrySources(['./src/js/App.jsx']),
+    entry: getEntrySources(['./src/js/app.jsx']),
     // What to build and where
     output: {
         publicPath: 'http://localhost:8080/',
         filename: 'build/bundle.js'
+    },
+    node: {
+        fs: "empty"
     },
     // http://webpack.github.io/docs/configuration.html#devtool
     devtool: 'eval-source-map',
@@ -56,7 +60,12 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+        })
+    ]
 };
 
 // ENV handler | Default = Development

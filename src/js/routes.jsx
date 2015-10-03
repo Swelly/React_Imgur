@@ -1,9 +1,11 @@
 import React from 'react';
-import Router, {Route, RouteHandler, Link } from 'react-router';
+import Router, { Route, RouteHandler, DefaultRoute } from 'react-router';
 
-module.exports = (
-  <Route handler={App}>
-    <Route name="About" handler={About} />
-    <Route name="Contact" handler={Contact} />
+import Main from './components/Main.jsx';
+import Home from './components/Home.jsx';
+
+export default (
+  <Route handler={Main}>
+    <DefaultRoute handler={Home} name="home" />
   </Route>
-)
+);
