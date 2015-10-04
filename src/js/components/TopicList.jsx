@@ -1,12 +1,45 @@
 import React from 'react';
+import Api from '../utils/api.jsx';
 
 class TopicList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      topics: []
+    };
+  }
+
+  componentWillMount() {
+    Api.get('topics/defaults')
+      .then(function(data){
+        this.setState({
+          topics: data.data
+        })
+      }.bind(this));
+  }
+
+  renderTopics() {
+    console.log("hey");
+    var topicChildren = this.state.topics.map((topic, index) => {
+      return (
+        <li key={index} className="list-group-item">
+          {topic}
+        </li>
+      )
+    })
+    return (
+      <ul className="list-group">
+        {topicChildren}
+      </ul>
+    )
+  }
 
   render() {
-
     return (
-      <div className="list-group">
-        Topic List
+      <div className="col-md">
+        <h3>Topic List</h3>
+        {this.renderTopics()}
       </div>
     )
 
