@@ -1,5 +1,6 @@
 import React from 'react';
-import Api from '../utils/api.jsx';
+
+import TopicStore from '../stores/TopicStore.js';
 
 class TopicList extends React.Component {
   constructor(props) {
@@ -11,10 +12,12 @@ class TopicList extends React.Component {
   }
 
   componentWillMount() {
-    Api.get('topics/defaults')
-      .then(function(data){
+    TopicStore.getTopics()
+      .then(function(){
+        // We have successfully fetched topics
+        // Topics avail on TopicStore.topics
         this.setState({
-          topics: data.data
+          topics: TopicStore.topics
         })
       }.bind(this));
   }
