@@ -9,6 +9,7 @@ import TopicList from './TopicList.jsx';
 
 class Main extends React.Component {
 
+  // Render Topic List
   renderContent() {
     if(this.props.children) {
       console.log("HEY")
@@ -23,7 +24,7 @@ class Main extends React.Component {
       <div className="container">
       <Header />
         <RouteHandler />
-        <div>{this.renderContent()}</div>
+        {this.renderContent()}
       </div>
     );
   }
