@@ -1,7 +1,7 @@
 import React from 'react';
+import Reflux from 'reflux';
 
 import TopicStore from '../stores/TopicStore.js';
-
 class TopicList extends React.Component {
   constructor(props) {
     super(props);
@@ -11,15 +11,14 @@ class TopicList extends React.Component {
     };
   }
 
+
+
   componentWillMount() {
-    TopicStore.getTopics()
-      .then(function(){
-        // We have successfully fetched topics
-        // Topics avail on TopicStore.topics
-        this.setState({
-          topics: TopicStore.topics
-        })
-      }.bind(this));
+    TopicStore.getTopics();
+  }
+
+  onChange(event, topics) {
+    this.setState({topics: this.topics});
   }
 
   renderTopics() {
@@ -45,7 +44,6 @@ class TopicList extends React.Component {
         {this.renderTopics()}
       </div>
     )
-
   }
 }
 
