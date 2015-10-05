@@ -11,12 +11,12 @@ const TopicStore = Reflux.createStore({
     return Api.get('topics/defaults')
       .then(function(json){
         this.topics = json.data;
-        this.triggerChange();
+        this.triggerChange(this.topics);
       }.bind(this));
   },
 
-  triggerChange: function() {
-    this.trigger('change', this.topics);
+  triggerChange: function(topics) {
+    this.trigger('change', topics);
   }
 });
 
